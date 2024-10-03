@@ -1,0 +1,9 @@
+unicornscan -i wlan0 -s 192.168.1.145 -I -L 5
+
+unicornscan -i wlan0 -s r 192.168.1.145/24:0-255 -I -L 5 -V
+
+wifi handling
+wpa_cli -> scan -> scan_results
+
+wpa_passphrase "Your_SSID" Your_passwd > Desktop/wpa_supplicant.conf
+
