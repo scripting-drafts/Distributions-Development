@@ -38,8 +38,20 @@ Other:
  sudo modprobe rtl8187 ps_enable=1  
   
  - Run changes on boot  
- sudo echo 'options rtl8187 ps_enable=1' >> /etc/modprobe.d/rtl8187.conf  
+ sudo echo 'options rtl8187 ps_enable=1' >> /etc/modprobe.d/rtl8187.conf
 
+ - General config
+sudo nano /etc/network/interfaces
+
+'''
+auto lo
+iface lo inet loopback
+
+auto wlan0:0
+iface wlan0:0 inet static
+        address 192.168.168.3
+        netmask 255.255.255.0
+'''
 
 ERROR  
 nl80211: kernel reports: Match already configured  
