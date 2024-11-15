@@ -21,11 +21,11 @@ exploit
 ## Wi-Fi Cheatsheet
 
 sudo iwlist wlan0 scan
-wpa_passphrase "HP Deskjet 2060" Ocarina8080 | sudo tee AP/wifi_wpa_supplicant.conf
-sudo wpa_supplicant -B -i wlan0 -c AP/wifi_wpa_supplicant.conf
-sudo dhclient wlan0 -r
-MAC: cat /sys/class/net/wlan0/address  
-
+wpa_passphrase "HP Deskjet 2060" Ocarina8080 | sudo tee AP/wifi_wpa_supplicant.conf  
+sudo wpa_supplicant -B -i wlan0 -c AP/wifi_wpa_supplicant.conf  
+sudo dhclient wlan0 -r  
+MAC: cat /sys/class/net/wlan0/address    
+  
 Other:  
  - List drivers  
  ethtool -i wlan0  
