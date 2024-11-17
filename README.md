@@ -43,18 +43,18 @@ Other:
  - General config
 sudo nano /etc/network/interfaces
 
- - Networks Manager
+ - Networks Manager  
 systemctl status NetworkManager  
 systemctl restart NetworkManager  
 
- - Scan WiFi APs (saved, hotspots, all)
-nmcli c
+ - Scan WiFi APs (saved, hotspots, all)  
+nmcli c  
 nmcli d wifi list  
-sudo iwlist <WifiInterface> scanning
+sudo iwlist <WifiInterface> scanning  
 
- - Conn (Ubuntu >=16.04)
+ - Conn (Ubuntu >=16.04)  
 nmcli d connect <WifiInterface>  
-nmcli d disconnect <WifiInterface>
+nmcli d disconnect <WifiInterface>  
 nmcli c up <SavedWiFiConn>  
 nmcli c down <SavedWiFiConn>  
 
