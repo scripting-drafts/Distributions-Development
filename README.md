@@ -47,10 +47,16 @@ sudo nano /etc/network/interfaces
 systemctl status NetworkManager  
 systemctl restart NetworkManager  
 
- - Display WiFi APs (saved, hotspots, all)
+ - Scan WiFi APs (saved, hotspots, all)
 nmcli c
 nmcli d wifi list  
-sudo iwlist <WifiInterface> scanning  
+sudo iwlist <WifiInterface> scanning
+
+ - Conn (Ubuntu >=16.04)
+nmcli d connect <WifiInterface>  
+nmcli d disconnect <WifiInterface>
+nmcli c up <SavedWiFiConn>  
+nmcli c down <SavedWiFiConn>  
 
 '''  
 auto lo  
