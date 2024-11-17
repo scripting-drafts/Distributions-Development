@@ -43,15 +43,24 @@ Other:
  - General config
 sudo nano /etc/network/interfaces
 
-'''
-auto lo
-iface lo inet loopback
+ - Networks Manager
+systemctl status NetworkManager  
+systemctl restart NetworkManager  
 
-auto wlan0:0
+ - Display WiFi APs (saved, hotspots, all)
+nmcli c
+nmcli d wifi list  
+sudo iwlist <WifiInterface> scanning  
+
+'''  
+auto lo  
+iface lo inet loopback  
+
+auto wlan0:0  
 iface wlan0:0 inet static
         address 192.168.168.3
         netmask 255.255.255.0
-'''
+'''  
 
 ERROR  
 nl80211: kernel reports: Match already configured  
