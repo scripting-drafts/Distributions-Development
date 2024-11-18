@@ -20,7 +20,7 @@ exploit
 
 ## Wi-Fi Cheatsheet
 
-sudo iwlist wlan0 scan
+sudo iwlist wlan0 scan  
 wpa_passphrase "HP Deskjet 2060" Ocarina8080 | sudo tee AP/wifi_wpa_supplicant.conf  
 sudo wpa_supplicant -B -i wlan0 -c AP/wifi_wpa_supplicant.conf  
 sudo dhclient wlan0 -r  
@@ -57,16 +57,15 @@ nmcli d connect <WifiInterface>
 nmcli d disconnect <WifiInterface>  
 nmcli c up <SavedWiFiConn>  
 nmcli c down <SavedWiFiConn>  
-
-'''  
+  
+  
 auto lo  
 iface lo inet loopback  
-
+  
 auto wlan0:0  
 iface wlan0:0 inet static
         address 192.168.168.3
         netmask 255.255.255.0
-'''  
-
+  
 ERROR  
 nl80211: kernel reports: Match already configured  
