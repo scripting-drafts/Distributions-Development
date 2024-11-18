@@ -39,6 +39,7 @@ nmcli d connect <WifiInterface>
 nmcli d disconnect <WifiInterface>  
 nmcli c up <SavedWiFiConn>  
 nmcli c down <SavedWiFiConn>  
+
   
 ## Network Analysis  
 nmap -sn 192.168.1.*  
