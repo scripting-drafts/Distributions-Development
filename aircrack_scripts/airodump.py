@@ -10,5 +10,5 @@ if channel == '--help':
     print('Example: python aircrack_scripts/airmon_airodump.py 11 U3:E5:3A:30:20:11')
     exit()
 
-airodump_2 = f'airodump-ng -c {channel} --bssid {mac} -w output-file {iface}'
+airodump_2 = f'sudo airodump-ng -c {channel} --bssid {mac} -w {mac}_capture {iface}'
 subprocess.call(airodump_2)
