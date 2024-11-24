@@ -2,6 +2,9 @@ import pyshark
 from airmon import iface
 
 'TODO:'
+''' - Wireshark deauth packet Filter:
+wlan.fc.type_subtype == 12
+'''
 ''' Deauth packet filters
  wlan.fc.type_subtype == 0 (association request)
  wlan.fc.type_subtype == 4 (probe request)

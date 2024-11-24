@@ -1,5 +1,13 @@
 https://medium.com/nybles/exploring-android-hacking-with-metasploit-framework-2306c3511698
   
+
+## Release notes SigintOS + Kali  
+ - Distribution release upgrade  
+RELEASE_UPGRADER_ALLOW_THIRD_PARTY=1 do-release-upgrade -m desktop -f DistUpgradeViewKDE  
+
+ - APT Upgrade options  
+sudo apt-get dist-upgrade -o Dpkg::Options::="--force-confnew"  
+
 ## Wi-Fi Cheatsheet
 
 sudo iwlist wlan0 scan  
