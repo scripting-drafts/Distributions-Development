@@ -38,13 +38,17 @@ msfdb init
 db_status  
   
 MSF Workspaces:  
-list -> workspace  
-select -> workspace msfu  
-create -> workspace -a lab1  
-delete -> workspace -d lab1  
+workspace  
+workspace lab3  
+add -> workspace -a lab1  
+del -> workspace -d lab1  
   
 Other:  
-db_nmap -A 192.168.1.1  
+db_nmap -A 192.168.1.1  (shitty snap integration)  
+(from msf) db_nmap --unprivileged -T4 -A -Ao nmap_scans/scan_workspace.xml  
+nmap -v -T4 -A -oA nmap_scans/%D.xml  
+sudo chowm -R username nmap_scans/*.xml  
+db_import ~/nmap_scans/*.xml  
   
 List by:  
 hosts (display scan)  
@@ -54,8 +58,8 @@ services -c name,info -p 445
 services -c port,proto,state -p 70-81  
   
 Backup:  
-db_export -f xml /root/msfu/Exported.xml  
-db_import /root/msfu/nmapScan  
+db_export -f xml -a workspace_name  
+db_import workspace_name  
 services -s http -c port 172.16.194.134 -o /root/msfu/http.csv  
   
 Credentials:  
@@ -74,3 +78,12 @@ show payloads
 show options  
 show advanced  
 show evasion  
+  
+## Exploit i.e  
+
+nmap -v -T4 -A -oA nmap_scans/%D.xml  
+sudo chown -R username nmap_scans/*.xml  
+db_import ~/nmap_scans/*.xml  
+use mysql_login  
+hosts  
+hosts -S Linux -R  
