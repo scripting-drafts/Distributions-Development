@@ -1,6 +1,6 @@
-## Release Notes  
+# Release Notes  
   
-### SigintOS + Kali  
+## SigintOS + Kali  
 
  - Distribution release upgrade  
 RELEASE_UPGRADER_ALLOW_THIRD_PARTY=1 do-release-upgrade -m desktop -f DistUpgradeViewKDE  
@@ -8,7 +8,7 @@ RELEASE_UPGRADER_ALLOW_THIRD_PARTY=1 do-release-upgrade -m desktop -f DistUpgrad
  - APT Upgrade options  
 sudo apt-get dist-upgrade -o Dpkg::Options::="--force-confnew"  
   
-### Wi-Fi Cheat Sheet
+## Wi-Fi Cheat Sheet
 
 sudo iwlist wlan0 scan  
 wpa_passphrase "essid" pwd | sudo tee AP/wifi_wpa_supplicant.conf  
