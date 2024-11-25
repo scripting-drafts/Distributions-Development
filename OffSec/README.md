@@ -84,6 +84,7 @@ webcam_snap
 nmap -v -T4 -A -oA nmap_scans/%D.xml  
 sudo chown -R username nmap_scans/*.xml  
 db_import ~/nmap_scans/*.xml  
+
 use mysql_login  
 hosts  
 hosts -S Linux -R  
