@@ -1,6 +1,4 @@
-### Release Notes  
-  
-### SigintOS
+### SigintOS & Kali
 
  - Distribution release upgrade  
 RELEASE_UPGRADER_ALLOW_THIRD_PARTY=1 do-release-upgrade -m desktop -f DistUpgradeViewKDE  
