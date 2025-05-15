@@ -115,11 +115,11 @@ libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-d
 Install python2.7:  
 pyenv versions  
 pyenv install 2.7  
-
-updatedb  
-  
+    
 For convenience:
-add cls="/usr/bin/clear" to .profile  
+sudo apt install locate  
+updatedb  
+add alias cls="/usr/bin/clear" to .profile  
   
 sudo apt install python3-full  
 sudo apt install python3-virtualenv  
