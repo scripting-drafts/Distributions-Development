@@ -55,66 +55,63 @@ nmcli d disconnect <WifiInterface>
 nmcli c up <SavedWiFiConn>  
 nmcli c down <SavedWiFiConn>  
   
-sudo nmcli radio wifi on
-sudo nmcli dev wifi connect <wifi-ssid> password "<network-password>"
-  
-  
+sudo nmcli radio wifi on  
+sudo nmcli dev wifi connect <wifi-ssid> password "<network-password>"  
   
 /etc/network/interfaces  i.e.:  
 auto lo  
 iface lo inet loopback  
   
 auto wlan0:0  
-iface wlan0:0 inet static
-        address 192.168.168.3
-        netmask 255.255.255.0
+iface wlan0:0 inet static  
+address 192.168.168.3  
+netmask 255.255.255.0  
   
-ERROR  
+ERROR reminder  
 nl80211: kernel reports: Match already configured  
 
-### Bookworm & Kali on Raspberry Pi Zero W  
-
-First steps in:
- - https://www.circuitbasics.com/raspberry-pi-zero-ethernet-gadget/
- - https://www.instructables.com/The-Ultimate-Headless-RPi-Zero-Setup-for-Beginners/
   
-After burning the card with ![the official burner](https://downloads.raspberrypi.org/imager/imager_latest.exe)
-
-Add empty "ssh" filetype:
-nano ssh
-
-Append in config.txt:
-dtoverlay=dwc2 
-
-Append after rootwait in cmdline.txt:
-modules-load=dwc2,g_ether
-
-
-sudo apt update -y && sudo apt full-upgrade -y
-
-Steps to install ![Netscanner](https://github.com/Chleba/netscanner)
+### Bookworm & Kali on RPi Zero W  
   
-Install ![python2.7 requirements](https://github.com/pyenv/pyenv?tab=readme-ov-file#a-getting-pyenv):
+First steps in:  
+ - https://www.circuitbasics.com/raspberry-pi-zero-ethernet-gadget/  
+ - https://www.instructables.com/The-Ultimate-Headless-RPi-Zero-Setup-for-Beginners/  
+  
+After burning the card with ![the official burner](https://downloads.raspberrypi.org/imager/imager_latest.exe)  
+  
+Add empty "ssh" filetype:  
+nano ssh  
+  
+Append in config.txt:  
+dtoverlay=dwc2  
+  
+Append after rootwait in cmdline.txt:  
+modules-load=dwc2,g_ether  
+   
+sudo apt update -y && sudo apt full-upgrade -y  
 
-curl -fsSL https://pyenv.run | bash
-
+Steps to install ![Netscanner](https://github.com/Chleba/netscanner)  
+  
+Install ![python2.7 requirements](https://github.com/pyenv/pyenv?tab=readme-ov-file#a-getting-pyenv):  
+  
+curl -fsSL https://pyenv.run | bash  
+  
 To ~./bashrc:  
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
-
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc  
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc  
+echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc  
+  
 To ~./profile:  
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
-echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
-echo 'eval "$(pyenv init - bash)"' >> ~/.profile
-
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile  
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile  
+echo 'eval "$(pyenv init - bash)"' >> ~/.profile  
+  
 Install dependencies:  
-sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev curl git \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-
-
-Install python2.7:
-pyenv versions
-pyenv install 2.7
+sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \  
+libbz2-dev libreadline-dev libsqlite3-dev curl git \  
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev  
+  
+Install python2.7:  
+pyenv versions  
+pyenv install 2.7  
 
