@@ -119,6 +119,11 @@ pyenv versions
 pyenv install 2.7  
     
 For convenience:
+sudo apt update
+sudo apt full-upgrade
+sudo apt install rpi-connect
+rpi-connect on
+rpi-connect signin
 sudo apt install locate  
 updatedb  
 add alias cls="/usr/bin/clear" to .profile  
