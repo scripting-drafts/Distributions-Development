@@ -78,7 +78,7 @@ First steps in:
  - https://www.circuitbasics.com/raspberry-pi-zero-ethernet-gadget/
  - https://www.instructables.com/The-Ultimate-Headless-RPi-Zero-Setup-for-Beginners/
   
-After burning the card with ![the official burner][https://downloads.raspberrypi.org/imager/imager_latest.exe]
+After burning the card with ![the official burner](https://downloads.raspberrypi.org/imager/imager_latest.exe)
 
 Add empty "ssh" filetype:
 nano ssh
@@ -92,10 +92,9 @@ modules-load=dwc2,g_ether
 
 sudo apt update -y && sudo apt full-upgrade -y
 
-Steps to install ![Netscanner][https://github.com/Chleba/netscanner]
-
-
-Install ![python2.7 requirements][https://github.com/pyenv/pyenv?tab=readme-ov-file#a-getting-pyenv]:
+Steps to install ![Netscanner](https://github.com/Chleba/netscanner)
+  
+Install ![python2.7 requirements](https://github.com/pyenv/pyenv?tab=readme-ov-file#a-getting-pyenv):
 
 curl -fsSL https://pyenv.run | bash
 
