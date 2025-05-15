@@ -116,6 +116,10 @@ Install python2.7:
 pyenv versions  
 pyenv install 2.7  
 
-updatedb
+updatedb  
+  
+For convenience:
+add cls="/usr/bin/clear" to .profile  
+  
 sudo apt install python3-full  
 sudo apt install python3-virtualenv  
