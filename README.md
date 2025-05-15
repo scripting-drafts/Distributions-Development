@@ -90,6 +90,7 @@ modules-load=dwc2,g_ether
    
 sudo apt update -y && sudo apt full-upgrade -y  
 
+    
 Steps to install ![Netscanner](https://github.com/Chleba/netscanner)  
   
 Install ![python2.7 requirements](https://github.com/pyenv/pyenv?tab=readme-ov-file#a-getting-pyenv):  
@@ -115,3 +116,6 @@ Install python2.7:
 pyenv versions  
 pyenv install 2.7  
 
+updatedb
+sudo apt install python3-full  
+sudo apt install python3-virtualenv  
