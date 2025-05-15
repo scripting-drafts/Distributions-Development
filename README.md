@@ -77,6 +77,8 @@ First steps in:
  - https://www.circuitbasics.com/raspberry-pi-zero-ethernet-gadget/  
  - https://www.instructables.com/The-Ultimate-Headless-RPi-Zero-Setup-for-Beginners/  
   
+Install Bonjour and RNDIS ![3rd party drivers]() on Windows  
+  
 After burning the card with ![the official burner](https://downloads.raspberrypi.org/imager/imager_latest.exe)  
   
 Add empty "ssh" filetype:  
