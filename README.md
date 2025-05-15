@@ -55,7 +55,8 @@ nmcli d disconnect <WifiInterface>
 nmcli c up <SavedWiFiConn>  
 nmcli c down <SavedWiFiConn>  
   
-  
+sudo nmcli radio wifi on
+sudo nmcli dev wifi connect <wifi-ssid> password "<network-password>"
   
   
   
