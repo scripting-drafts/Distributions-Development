@@ -25,9 +25,10 @@ sudo apt install rpi-connect
 rpi-connect on  
 rpi-connect signin  
 sudo apt install locate    
-updatedb  
+
 add alias cls="/usr/bin/clear" to .profile  
 sudo nano /etc/motd  
+updatedb  
   
 sudo apt install python3-full  
 sudo apt install python3-virtualenv  
