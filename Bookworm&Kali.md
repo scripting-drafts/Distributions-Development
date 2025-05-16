@@ -35,6 +35,11 @@ sudo nano /etc/NetworkManager/NetworkManager.conf
 [main]  
    plugins=ifupdown,keyfile  
    managed=true  
+
+sudo nano /etc/NetworkManager/conf.d/10-my-config.conf
+  
+[usb0]  
+   managed=true  
   
 sudo nano /etc/dhcpcd.conf
 interface usb0
