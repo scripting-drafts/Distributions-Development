@@ -27,6 +27,7 @@ rpi-connect signin
 sudo apt install locate  
 updatedb  
 add alias cls="/usr/bin/clear" to .profile  
+sudo nano /etc/motd  
   
 sudo apt install python3-full  
 sudo apt install python3-virtualenv  
