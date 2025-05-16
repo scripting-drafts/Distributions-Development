@@ -56,6 +56,12 @@ iface usb0 inet static
         network 192.168.7.0  
         broadcast 192.168.7.255  
         gateway 192.168.7.1  
+  
+Assert interfaces status:  
+nmcli general
+nmcli device
+nmcli radio
+ip link
 
 Follow the steps in ![Setting a Static Address](https://raspberrypi.stackexchange.com/questions/145593/how-do-i-set-up-networking-on-raspberry-pi-os-bookworm)  
   
