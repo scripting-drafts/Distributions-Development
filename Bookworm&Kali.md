@@ -29,7 +29,13 @@ sudo apt install locate
 add alias cls="/usr/bin/clear" to .profile  
 sudo nano /etc/motd  
 updatedb  
-
+  
+sudo nano /etc/NetworkManager/NetworkManager.conf
+  
+[main]  
+   plugins=ifupdown,keyfile  
+   managed=true  
+  
 sudo nano /etc/dhcpcd.conf
 interface usb0
 static ip_address=192.168.2.3/24
