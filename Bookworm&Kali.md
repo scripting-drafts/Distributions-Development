@@ -19,12 +19,12 @@ dtoverlay=dwc2
 Append after rootwait in cmdline.txt:  
 modules-load=dwc2,g_ether  
    
-For convenience:
+For convenience:  
 sudo apt update && sudo apt full-upgrade -y  
-sudo apt install rpi-connect
-rpi-connect on
-rpi-connect signin
-sudo apt install locate  
+sudo apt install rpi-connect  
+rpi-connect on  
+rpi-connect signin  
+sudo apt install locate    
 updatedb  
 add alias cls="/usr/bin/clear" to .profile  
 sudo nano /etc/motd  
