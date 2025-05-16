@@ -29,6 +29,19 @@ sudo apt install locate
 add alias cls="/usr/bin/clear" to .profile  
 sudo nano /etc/motd  
 updatedb  
+
+Edit /etc/network/interfaces:  
+auto usb0  
+allow-hotplug usb0  
+iface usb0 inet static  
+        address 192.168.7.2  
+        netmask 255.255.255.0  
+        network 192.168.7.0  
+        broadcast 192.168.7.255  
+        gateway 192.168.7.1  
+
+Follow the steps in ![Setting a Static Address](https://raspberrypi.stackexchange.com/questions/145593/how-do-i-set-up-networking-on-raspberry-pi-os-bookworm)  
+  
   
 sudo apt install python3-full  
 sudo apt install python3-virtualenv  
