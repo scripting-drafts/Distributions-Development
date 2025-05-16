@@ -32,11 +32,11 @@ updatedb
 
 sudo nano /etc/dhcpcd.conf
 interface usb0
-static ip_address=192.168.2.33/24
+static ip_address=192.168.2.3/24
 static routers=192.168.2.1
 static domain_name_servers=192.168.2.1
 
-Edit /etc/network/interfaces:  
+sudo nano /etc/network/interfaces  
 auto usb0  
 allow-hotplug usb0  
 iface usb0 inet static  
