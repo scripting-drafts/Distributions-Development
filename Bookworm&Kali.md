@@ -19,14 +19,52 @@ dtoverlay=dwc2
 Append after rootwait in cmdline.txt:  
 modules-load=dwc2,g_ether  
    
-For convenience:
+For convenience:  
 sudo apt update && sudo apt full-upgrade -y  
-sudo apt install rpi-connect
-rpi-connect on
-rpi-connect signin
-sudo apt install locate  
-updatedb  
+sudo apt install rpi-connect  
+rpi-connect on  
+rpi-connect signin  
+sudo apt install locate    
+
 add alias cls="/usr/bin/clear" to .profile  
+sudo nano /etc/motd  
+updatedb  
+  
+sudo nano /etc/NetworkManager/NetworkManager.conf
+  
+[main]  
+   plugins=ifupdown,keyfile  
+   managed=true  
+
+sudo nano /etc/NetworkManager/conf.d/10-my-config.conf
+  
+[usb0]  
+   managed=true  
+  
+sudo nano /etc/dhcpcd.conf
+interface usb0
+static ip_address=192.168.2.3/24
+static routers=192.168.2.1
+static domain_name_servers=192.168.2.1
+
+sudo nano /etc/network/interfaces  
+auto usb0  
+allow-hotplug usb0  
+iface usb0 inet static  
+        address 192.168.7.2  
+        netmask 255.255.255.0  
+        network 192.168.7.0  
+        broadcast 192.168.7.255  
+        gateway 192.168.7.1  
+  
+Assert interfaces status:  
+nmcli general
+nmcli device
+nmcli radio
+ip link
+
+Follow the steps in ![Setting a Static Address](https://raspberrypi.stackexchange.com/questions/145593/how-do-i-set-up-networking-on-raspberry-pi-os-bookworm)  
+  
   
 sudo apt install python3-full  
 sudo apt install python3-virtualenv  
