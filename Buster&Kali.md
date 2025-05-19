@@ -1,7 +1,7 @@
 ### Bookworm & Kali on RPi Zero W  
   
-(All works till "Install python 2.7")
-
+## Manage like USB Gadget  
+  
 First steps in:  
  - https://www.circuitbasics.com/raspberry-pi-zero-ethernet-gadget/  
  - https://www.instructables.com/The-Ultimate-Headless-RPi-Zero-Setup-for-Beginners/  
@@ -18,19 +18,62 @@ dtoverlay=dwc2
   
 Append after rootwait in cmdline.txt:  
 modules-load=dwc2,g_ether  
-   
+  
 For convenience:  
-sudo apt update && sudo apt full-upgrade -y  
-sudo apt install rpi-connect  
-rpi-connect on  
-rpi-connect signin  
-sudo apt install locate    
 
+<!-- sudo nano /etc/dhcp/dhcpd.conf  
+interface usb0
+static ip_address=192.168.100.100/24
+static routers=192.168.100.1
+static domain_name_servers=192.168.100.1 -->
+  
+add 'sudo ifconfig usb0 up' to .bashrc
+sudo apt update && sudo apt full-upgrade -y  
+sudo apt install locate  
 add alias cls="/usr/bin/clear" to .profile  
 sudo nano /etc/motd  
 updatedb  
+
+For Bookworm:  
+sudo apt install rpi-connect  
+rpi-connect on  
+rpi-connect signin  
+
+For Buster:  
+sudo raspi-config
+enable RealVNC through Interfaces  
   
-sudo nano /etc/NetworkManager/NetworkManager.conf
+Deploy Hotspot Captive Portal:  
+sudo apt-get install libmicrohttpd-dev  
+cd ~/  
+git clone https://github.com/nodogsplash/nodogsplash.git  
+cd nodogsplash  
+make  
+sudo make install  
+sudo nano /etc/nodogsplash/nodogsplash.conf  
+Edit parameters "GatewayInterface", "GatewayAddress"  
+sudo nano /etc/rc.local  
+Editable at:  
+
+Make Hotspot (without the password arg):  
+copy "interfaces" and "dhcpcd.conf" to rpi  
+
+set the servers in /etc/resolvconf.conf:  
+name_servers="8.8.8.8 8.8.4.4"  
+And afterwards run resolvconf -u, to generate /etc/resolv.conf  
+  
+sudo nano /etc/dhcp/dhclient.conf
+
+git clone https://github.com/oblique/create_ap
+cd create_ap
+make install
+
+
+
+
+## Other
+sudo nano /etc/NetworkManager/NetworkManager.conf  
+cd ~/  
   
 [main]  
    plugins=ifupdown,keyfile  
@@ -41,11 +84,7 @@ sudo nano /etc/NetworkManager/conf.d/10-my-config.conf
 [usb0]  
    managed=true  
   
-sudo nano /etc/dhcpcd.conf
-interface usb0
-static ip_address=192.168.2.3/24
-static routers=192.168.2.1
-static domain_name_servers=192.168.2.1
+
 
 sudo nano /etc/network/interfaces  
 auto usb0  
