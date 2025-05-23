@@ -43,7 +43,7 @@ For Buster:
 sudo raspi-config
 enable RealVNC through Interfaces  
   
-Deploy Hotspot Captive Portal:  
+Deploy NoDogSplash:  
 sudo apt-get install libmicrohttpd-dev  
 cd ~/  
 git clone https://github.com/nodogsplash/nodogsplash.git  
